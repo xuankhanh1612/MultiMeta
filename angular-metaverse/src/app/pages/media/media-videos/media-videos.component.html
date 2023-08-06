@@ -1,0 +1,45 @@
+<div class="media-items-container">
+    <div class="media-items-header">
+        <div class="media-items-category">{{title}}</div>
+        <div class="media-items-btn-more">More</div>
+    </div>
+    <div class="media-items-body">
+        <div [id]="'carousel' + title" class="carousel slide" data-interval="false" wrap="true" data-bs-ride="true">
+<!--            <div class="carousel-indicators">-->
+<!--                <ng-container *ngFor="let idx of arrayNumerBtn">-->
+<!--                    <button type="button" [attr.data-bs-target]="carouselId" [attr.data-bs-slide-to]="idx" [ngClass]="idx === 0 ? 'active' : ''" aria-current="true"></button>-->
+<!--                </ng-container>-->
+<!--            </div>-->
+            <div class="carousel-inner" style="height: 100%">
+                <div style="width: 100%; display:flex">
+                    <ng-container *ngFor="let item of videos">
+                        <!--                                <div class="group-items group-item-video" (click)="playVideo()">-->
+                        <div class="group-items group-item-video" (click)="onSelectVideo(item)">
+                            <div class="item-audio-content">
+                                <div class="item-audio-img-video">
+                                    <img [src]="item.cover_link" class="d-block" alt="">
+                                </div>
+                                <div class="item-play-video">
+                                    <img src="./assets/icons/ic-play-video.svg"alt="">
+                                    
+                                </div>
+                            </div>
+                            <div class="item-detail-footer">
+                                <div class="item-audio-name">{{item.name}}</div>
+                                <div class="item-video-price">{{item.price}}</div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" [attr.data-bs-target]="carouselId" data-bs-slide="prev" (click)="onPrev()">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" [attr.data-bs-target]="carouselId" data-bs-slide="next" (click)="onNext()">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</div>

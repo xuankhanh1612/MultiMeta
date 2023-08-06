@@ -1,0 +1,184 @@
+<div class="home-container">
+    <div class="home-view-3D" id="home-view-3D">
+<!--        Append canvas here-->
+
+    </div>
+    <div class="home-nav-bars">
+        <img class="header-dropdown-icon" style="margin-top: 0px !important;" [src]="controlNavBars[0] ? './assets/icons/ic-media-selected.svg' : './assets/icons/ic-media.svg'" alt="" (click)="openModalMedia()">
+        <img class="header-dropdown-icon" [src]="controlNavBars[1] ? './assets/icons/ic-book-selected.svg' : './assets/icons/ic-book.svg'" alt="" (click)="openModalEbook()">
+        <img class="header-dropdown-icon" [src]="controlNavBars[2] ? './assets/icons/ic-shop-selected.svg' : './assets/icons/ic-shop.svg'" alt="" (click)="openModalShop()">
+        <img class="header-dropdown-icon" [src]="controlNavBars[3] ? './assets/icons/ic-setting-selected.svg' : './assets/icons/ic-setting.svg'"  alt="">
+        <img class="header-dropdown-icon" [src]="controlNavBars[4] ? './assets/icons/ic-help-selected.svg' : './assets/icons/ic-help.svg'"  alt="">
+    </div>
+    <div class="home-other-players">
+        <!-- <div class="home-player-avatar">
+            <img class="home-player-avatar-img" src="./assets/avatar-devil.png" alt="">
+            <img class="home-player-avatar-status" src="./assets/avatar-status.png" alt="">
+        </div>
+        <div class="home-player-avatar">
+            <img class="home-player-avatar-img" src="./assets/avatar-devil.png" alt="">
+            <img class="home-player-avatar-status" src="./assets/avatar-status.png" alt="">
+        </div> -->
+        <div class="home-player-avatar">
+            <img class="home-player-avatar-img" src="./assets/avatar-devil.png" alt="">
+<!--            <img class="home-player-avatar-status" src="./assets/avatar-status.png" alt="">-->
+            <div class="home-player-avatar-number">
+                {{usersCount}}
+            </div>
+        </div>
+    </div>
+
+    <div class="home-buble-map" (click)="onShowMap()">
+        <i class="fa-regular fa-map"></i>
+    </div>
+
+    <div class="home-buble-eyes" (click)="isShowAnim = !isShowAnim">
+        <img class="home-buble-eyes-img" [src]="isShowAnim ? './assets/icons/eyes-selected.svg' : './assets/icons/eyes.svg'" alt="">
+    </div>
+    <ng-container *ngIf="isShowAnim">
+        <div class="buble-player-aim" style="bottom: 40.7vh; right: 4.6vh" (click)="onRunAnimation(this.playerAnimations[0])">
+            <span class="material-icons">airline_seat_recline_normal</span>
+        </div>
+        <div class="buble-player-aim" style="bottom: 38.4vh; right: 16.2vh" (click)="onRunAnimation(this.playerAnimations[1])">
+            <img class="buble-run-img" src="./assets/icons/clap.svg" alt="">
+        </div>
+        <div class="buble-player-aim" style="bottom: 27.7vh; right: 19.9vh" (click)="onRunAnimation(this.playerAnimations[2])">
+            <span class="material-icons">swipe_up</span>
+        </div>
+        <div class="buble-player-aim" *ngIf="isTouch" style="bottom: 17.7vh; right: 15.9vh" (click)="onRunAnimation(this.playerAnimations[3])">
+            <span class="material-icons">airline_stops</span>
+        </div>
+
+    </ng-container>
+
+    <div class="home-header">
+        <div class="home-header-logo">
+            <img [src]="isMetaBDSG ? './assets/BDSG-logo-Horizontal.png' : './assets/home-logo.png'" alt="">
+<!--            FixMe change path of second logo-->
+            <img *ngIf="isMetaBDSG" style="margin-left: 10px" src="./assets/BDSG-logo-Horizontal.png" alt="">
+        </div>
+        <div class="home-header-profile">
+            <div class="home-header-token">
+                <div class="dropdown">
+                    <p data-bs-toggle="dropdown" aria-expanded="false">${{sessionService.balance}}</p>
+                    <ul class="dropdown-menu header-dropdown header-dropdown-mg-top-30">
+                        <li class="header-dropdown-item header-dropdown-item-topup">
+                            <img class="header-dropdown-icon" alt="">
+                            <p class="header-dropdown-label">Top up</p>
+                        </li>
+                        <li class="header-dropdown-item header-dropdown-icon-withdraw">
+                            <img class="header-dropdown-icon" alt="">
+                            <p class="header-dropdown-label">Withdraw</p>
+                        </li>
+                        <li class="header-dropdown-item header-dropdown-icon-transfer">
+                            <img class="header-dropdown-icon" alt="">
+                            <p class="header-dropdown-label">Transfer</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="home-header-user">
+                <div class="dropdown">
+                    <div class="home-header-user-container d-flex flex-row justify-content-start align-items-center" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img class="home-header-user-img" [src]="userinfo.avatar ? userinfo.avatar : './assets/avatar-default.png'"alt="">
+                        <p>{{userinfo.first_name}} {{userinfo.last_name}}</p>
+                    </div>
+                    <ul class="dropdown-menu header-dropdown header-dropdown-mg-top-25">
+                        <li class="header-dropdown-item header-dropdown-icon-profile" (click)="openProfile()">
+<!--                            <img class="header-dropdown-icon" alt="">-->
+                            <i class=" header-dropdown-icon fa-solid fa-user"></i>
+                            <p class="header-dropdown-label">Profile</p>
+                        </li>
+                        <li class="header-dropdown-item header-dropdown-icon-logout" style="margin-bottom: 15px;" (click)="logout()">
+                            <i class="header-dropdown-icon fa-solid fa-arrow-right-from-bracket"></i>
+                            <p class="header-dropdown-label">Logout</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="home-buble-chat" *ngIf="isShowBubleChat" (click)="openWindowChat()">
+        <img class="home-buble-chat-img" src="./assets/icons/ic-buble-chat.svg" alt="">
+    </div>
+    <div class="home-window-chat" *ngIf="!isShowBubleChat">
+        <div class="home-window-chat-container">
+            <div class="home-window-chat-view" id="home-window-chat-view">
+                <div class="home-chat-item" *ngFor="let itemChat of sessionService.messages">
+                    <div class="home-chat-item-avatar">
+                        <img [src]="itemChat.avatar !== '' ? itemChat.avatar : './assets/avatar-default.png'" src="./assets/avatar-devil.png" alt="">
+                    </div>
+                    <div class="home-chat-item-name">{{itemChat.user}}:</div>
+                    <div class="home-chat-item-msg">{{itemChat.content}}</div>
+                </div>
+<!--                <div class="home-chat-item">-->
+<!--                    <div class="home-chat-item-avatar">-->
+<!--                        <img src="./assets/avatar-default.png" alt="">-->
+<!--                    </div>-->
+<!--                    <div class="home-chat-item-name">Invoker:</div>-->
+<!--                    <div class="home-chat-item-msg">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</div>-->
+<!--                </div>-->
+<!--                <div class="home-chat-item">-->
+<!--                    <div class="home-chat-item-avatar">-->
+<!--                        <img src="./assets/avatar-devil.png" alt="">-->
+<!--                    </div>-->
+<!--                    <div class="home-chat-item-name">Pinky:</div>-->
+<!--                    <div class="home-chat-item-msg">Let's go movie</div>-->
+<!--                </div>-->
+<!--                <div class="home-chat-item">-->
+<!--                    <div class="home-chat-item-avatar">-->
+<!--                        <img src="./assets/avatar-default.png" alt="">-->
+<!--                    </div>-->
+<!--                    <div class="home-chat-item-name">Invoker:</div>-->
+<!--                    <div class="home-chat-item-msg">Okay</div>-->
+<!--                </div>-->
+            </div>
+            <div class="home-window-chat-input">
+                <div class="home-window-group-input">
+                    <input type="text" class="form-control" placeholder="Say something" [(ngModel)]="textChat" (keyup.enter)="sendMsg()">
+                    <img src="./assets/icons/ic-send-text.svg" alt="" (click)="sendMsg()">
+                </div>
+<!--                <div class="home-window-voice-chat">-->
+<!--                    <button>-->
+<!--                        <img src="./assets/icons/ic-voice-chat.svg" alt="">-->
+<!--                    </button>-->
+<!--                </div>-->
+            </div>
+<!--            <div class="home-window-chat-emoji">-->
+<!--                <img class="home-window-chat-emoji" src="./assets/icons/ic-smile.svg" alt="">-->
+<!--                <img class="home-window-chat-emoji" src="./assets/icons/ic-smile.svg" alt="">-->
+<!--                <img class="home-window-chat-emoji" src="./assets/icons/ic-smile.svg" alt="">-->
+<!--                <img class="home-window-chat-emoji" src="./assets/icons/ic-smile.svg" alt="">-->
+<!--                <img class="home-window-chat-emoji" src="./assets/icons/ic-smile.svg" alt="">-->
+<!--                <img class="home-window-chat-emoji" src="./assets/icons/ic-smile.svg" alt="">-->
+<!--            </div>-->
+        </div>
+        <div class="home-window-close" (click)="closeWindowChat()">
+            <img class="home-window-close-img" src="./assets/icons/ic-plus.svg" alt="">
+        </div>
+    </div>
+
+     <!-- For Component View -->
+    <div id="meetingSDKElement">
+        <!-- Zoom Meeting SDK Component View Rendered Here -->
+    </div>
+
+    <div id="playerAudio">
+    </div>
+
+    <div class="home-buble-zoom" (click)="openWindowZoom()">
+        <img class="home-buble-zoom-img" [src]="isShowZoom ? './assets/icons/ic-camera.svg' : './assets/icons/ic-camera-selected.svg'" alt="">
+    </div>
+
+    <div class="home-window-zoom" *ngIf="!isShowZoom">
+        <div class="list-group">
+            <a *ngFor="let itemzoom of listZoomsByMetaverse" class="list-group-item list-group-item-action" (click)="openAskJoinZoom(itemzoom)">
+                <p class="mb-1">{{itemzoom.topic}}</p>
+                <small>{{itemzoom.agenda}} - {{itemzoom.start_time}}</small>
+            </a>
+        </div>
+    </div>
+    <div class="home-footer">
+        <p class="home-footer-title"><b>WASD</b>&nbsp;&nbsp;move&nbsp;&nbsp;||&nbsp;&nbsp;<b>SHIFT</b>&nbsp;&nbsp;run&nbsp;&nbsp;||&nbsp;&nbsp;<b>SPACE</b>&nbsp;&nbsp;jump&nbsp;&nbsp;||&nbsp;&nbsp;<b>V</b>&nbsp;&nbsp;view&nbsp;&nbsp;||&nbsp;&nbsp;<b>R</b>&nbsp;&nbsp;respawn</p>
+    </div>
+</div>

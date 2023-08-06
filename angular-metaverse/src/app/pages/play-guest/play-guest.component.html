@@ -1,0 +1,110 @@
+<div class="home-container">
+    <div class="guest-view-3D" id="guest-view-3D">
+        <!--        Append canvas here-->
+    </div>
+<!--    <div class="home-nav-bars">-->
+<!--        <img class="header-dropdown-icon" src="./assets/icons/ic-media.svg" alt="">-->
+<!--        <img class="header-dropdown-icon" src="./assets/icons/ic-book.svg" alt="">-->
+<!--        <img class="header-dropdown-icon" src="./assets/icons/ic-shop.svg" alt="">-->
+<!--        <img class="header-dropdown-icon" src="./assets/icons/ic-setting.svg" alt="">-->
+<!--        <img class="header-dropdown-icon" src="./assets/icons/ic-help.svg" alt="">-->
+<!--    </div>-->
+    <div class="home-other-players">
+        <!-- <div class="home-player-avatar">
+            <img class="home-player-avatar-img" src="./assets/avatar-devil.png" alt="">
+            <img class="home-player-avatar-status" src="./assets/avatar-status.png" alt="">
+        </div>
+        <div class="home-player-avatar">
+            <img class="home-player-avatar-img" src="./assets/avatar-devil.png" alt="">
+            <img class="home-player-avatar-status" src="./assets/avatar-status.png" alt="">
+        </div> -->
+        <div class="home-player-avatar">
+            <img class="home-player-avatar-img" src="./assets/avatar-devil.png" alt="">
+            <!--            <img class="home-player-avatar-status" src="./assets/avatar-status.png" alt="">-->
+            <div class="home-player-avatar-number">
+                {{usersCount}}
+            </div>
+        </div>
+    </div>
+    <div class="home-header">
+        <div class="home-header-logo">
+            <img src="./assets/home-logo.png"alt="">
+        </div>
+        <div class="home-header-profile">
+            <div class="home-header-token">
+                <div class="dropdown" (click)="goLogin(false)">
+                    <p aria-expanded="false" style="font-size: 24px !important;">LOGIN</p>
+                </div>
+            </div>
+            <div class="home-header-user">
+                <div class="dropdown" (click)="goLogin(true)">
+                    <div class="home-header-user-container" aria-expanded="false">
+                        <p>SIGN UP</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="home-buble-chat" *ngIf="isShowBubleChat" (click)="openWindowChat()">
+        <img class="home-buble-chat-img" src="./assets/icons/ic-buble-chat.svg" alt="">
+    </div> -->
+    <div class="home-window-chat" *ngIf="!isShowBubleChat">
+        <div class="home-window-chat-container">
+            <div class="home-window-chat-view">
+                <div class="home-chat-item">
+                    <div class="home-chat-item-avatar">
+                        <img src="./assets/avatar-devil.png" alt="">
+                    </div>
+                    <div class="home-chat-item-name">Pinky:</div>
+                    <div class="home-chat-item-msg">Hello world!!!</div>
+                </div>
+                <div class="home-chat-item">
+                    <div class="home-chat-item-avatar">
+                        <img src="./assets/avatar-default.png" alt="">
+                    </div>
+                    <div class="home-chat-item-name">Invoker:</div>
+                    <div class="home-chat-item-msg">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</div>
+                </div>
+                <div class="home-chat-item">
+                    <div class="home-chat-item-avatar">
+                        <img src="./assets/avatar-devil.png" alt="">
+                    </div>
+                    <div class="home-chat-item-name">Pinky:</div>
+                    <div class="home-chat-item-msg">Let's go movie</div>
+                </div>
+                <div class="home-chat-item">
+                    <div class="home-chat-item-avatar">
+                        <img src="./assets/avatar-default.png" alt="">
+                    </div>
+                    <div class="home-chat-item-name">Invoker:</div>
+                    <div class="home-chat-item-msg">Okay</div>
+                </div>
+            </div>
+            <div class="home-window-chat-input">
+                <div class="home-window-group-input">
+                    <input type="text" class="form-control" placeholder="Say something">
+                    <img src="./assets/icons/ic-send-text.svg" alt="">
+                </div>
+                <div class="home-window-voice-chat">
+                    <button>
+                        <img src="./assets/icons/ic-voice-chat.svg" alt="">
+                    </button>
+                </div>
+            </div>
+            <div class="home-window-chat-emoji">
+                <img class="home-window-chat-emoji" src="./assets/icons/ic-smile.svg" alt="">
+                <img class="home-window-chat-emoji" src="./assets/icons/ic-smile.svg" alt="">
+                <img class="home-window-chat-emoji" src="./assets/icons/ic-smile.svg" alt="">
+                <img class="home-window-chat-emoji" src="./assets/icons/ic-smile.svg" alt="">
+                <img class="home-window-chat-emoji" src="./assets/icons/ic-smile.svg" alt="">
+                <img class="home-window-chat-emoji" src="./assets/icons/ic-smile.svg" alt="">
+            </div>
+        </div>
+        <div class="home-window-close" (click)="closeWindowChat()">
+            <img class="home-window-close-img" src="./assets/icons/ic-plus.svg" alt="">
+        </div>
+    </div>
+    <div class="home-footer">
+        <p class="home-footer-title"><b>WASD</b>&nbsp;&nbsp;move&nbsp;&nbsp;||&nbsp;&nbsp;<b>SHIFT</b>&nbsp;&nbsp;run&nbsp;&nbsp;||&nbsp;&nbsp;<b>SPACE</b>&nbsp;&nbsp;jump&nbsp;&nbsp;||&nbsp;&nbsp;<b>V</b>&nbsp;&nbsp;view&nbsp;&nbsp;||&nbsp;&nbsp;<b>R</b>&nbsp;&nbsp;respawn</p>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+<div class="full-width-height">
+    <div class="splash-content">
+        <div class="logo">
+            <img src="./assets/splash-logo.svg"alt="">
+        </div>
+        <div class="div-slogan">
+            <p class="slogan">{{ isLogin ? 'LOGIN' : 'SIGN UP'}}</p>
+        </div>
+        <div class="div-form-login">
+            <ng-container *ngIf="isLogin && !isForgotPwd">
+                <div>
+                    <input class="input-custom-style" type="email" placeholder="Enter email" [(ngModel)]="formLogin.email">
+                </div>
+                <div>
+                    <input class="input-custom-style" type="password" placeholder="Password" [(ngModel)]="formLogin.password">
+                </div>
+                <div class="div-forgot-password">
+                    <button mat-button (click)="openViewForgotPassword()">Forgot password?</button>
+                </div>
+                <div class="div-btn-login-guest">
+                    <button mat-stroked-button class="btn-connent-wallet" (click)="playAsGuest()">Guest</button>
+<!--                    <button mat-button class="btn-signin" (click)="login(true)">Login old version</button>-->
+                    <button mat-button class="btn-signin" (click)="login()">Login</button>
+                </div>
+
+                <div class="div-create-account">
+                    <button mat-button (click)="switchLoginSignup()">Create an account</button>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="!isLogin">
+                <div>
+                    <input class="input-custom-style" type="email" placeholder="Enter email" [(ngModel)]="formSignup.email">
+                </div>
+<!--                <div>-->
+<!--                    <input class="input-custom-style" type="text" placeholder="Username">-->
+<!--                </div>-->
+                <div>
+                    <input class="input-custom-style" type="password" placeholder="Password" [(ngModel)]="formSignup.password">
+                </div>
+                <div>
+                    <input class="input-custom-style" type="password" placeholder="Confirm password" [(ngModel)]="formSignup.confirmPassword">
+                </div>
+                <div class="div-btn-login-guest" style="margin-top: 5vh;">
+                    <button mat-stroked-button class="btn-connent-wallet" (click)="switchLoginSignup()">LOGIN</button>
+                    <button mat-button class="btn-signin" (click)="signup()">SIGN UP</button>
+                </div>
+            </ng-container>
+
+            <ng-container *ngIf="isForgotPwd">
+                <div>
+                    <input class="input-custom-style" type="email" placeholder="Enter email" [(ngModel)]="formForgotPwd.email">
+                </div>
+                <div class="div-btn-login-guest" style="margin-top: 20vh;">
+                    <button mat-stroked-button class="btn-connent-wallet" (click)="openViewForgotPassword()">LOGIN</button>
+                    <button mat-button class="btn-signin" (click)="submitForgotPwd()">SUBMIT</button>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,4 @@
+<div class="full-width-height set-background">
+    <app-loading *ngIf="sessionService.isLoadingGlobal"></app-loading>
+    <router-outlet *ngIf="!isLoading"></router-outlet>
+</div>

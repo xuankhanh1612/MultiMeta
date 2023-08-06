@@ -1,0 +1,49 @@
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="over">
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header #expansionPanelHeader (click)="expansionPanel()">
+                <mat-panel-title>
+                    <i [ngClass]="isShowPanel ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'"></i>
+                </mat-panel-title>
+                <!--                <mat-panel-description style="justify-content: center;align-items: center;">-->
+                <!--                    <div class="item-menu" style="padding-right: 53px;pointer-events: none;">-->
+                <!--                        {{itemSelected.name}}-->
+                <!--                    </div>-->
+                <!--                </mat-panel-description>-->
+            </mat-expansion-panel-header>
+            <div style="display: block;">
+                <ng-container *ngFor="let item of menuItems">
+                    <div [ngClass]="item.isActive ? 'item-menu-active' : 'item-menu'"
+                         (click)="activeMenuItem(item); expansionPanelHeader._toggle(); isShowPanel = false;">
+                        {{item.name}}
+                    </div>
+                </ng-container>
+            </div>
+        </mat-expansion-panel>
+
+        <div class="menu-content">
+            <app-chat *ngIf="menuItems[0].isActive"></app-chat>
+            <app-multiplayer *ngIf="menuItems[1].isActive"></app-multiplayer>
+            <app-avatar *ngIf="menuItems[2].isActive"></app-avatar>
+            <app-options *ngIf="menuItems[3].isActive"></app-options>
+<!--            <app-playlist *ngIf="menuItems[4].isActive"></app-playlist>-->
+        </div>
+
+        <div class="menu-footer">
+            <div style="color: white; font-size: 10px;">© Powered by Multimeta</div>
+            <div style="color: white;">Not Connected</div>
+            <div style="color: white; font-size: 15px;">💸 0 || 🙋 0</div>
+            <div style="padding: 20px; margin: 20px; border: 1px solid rgb(224, 224, 224); border-radius: 10px; background: radial-gradient(circle, rgb(255, 235, 235) 0%, rgb(255, 215, 215) 48%, rgb(255, 230, 230) 100%); box-shadow: rgb(255, 136, 136) 0px 2px 2px; text-align: center; cursor: pointer;">
+                Disconnect
+            </div>
+        </div>
+    </mat-drawer>
+
+    <div class="id-view-3d" id="id-view-3d">
+<!--        <div class="btn-menus">-->
+<!--            <button type="button" class="btn btn-light" (click)="drawer.toggle()">-->
+<!--                <i class="fa-solid fa-bars"></i>-->
+<!--            </button>-->
+<!--        </div>-->
+    </div>
+</mat-drawer-container>

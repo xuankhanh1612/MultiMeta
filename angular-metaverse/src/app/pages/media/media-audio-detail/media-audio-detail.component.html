@@ -1,0 +1,32 @@
+<div class="media-container">
+    <div class="ebook-panel-detail">
+        <!-- <div class="audio-img" *ngIf="mediaType == 2">
+            <img [src]="mediaItem?.cover_link" class="d-block" alt="">
+            <audio controls autoplay>
+                <source [src]="mediaItem?.media_link" type="audio/ogg">
+            </audio>
+        </div> -->
+        <video class="video-img" controls [poster]='mediaItem?.cover_link' autoplay *ngIf="mediaType == 2">
+            <source  [src]="mediaItem?.media_link" type="audio/mp3">
+        </video>
+        <video class="video-img" controls autoplay *ngIf="mediaType == 3">
+            <source  [src]="mediaItem?.media_link" type="video/mp4">
+        </video>
+        <div class="ebook-panel-content" style="width: 44vh !important; margin-top: 4.4vh">
+            <div class="ebook-panel-name">{{mediaItem?.name}}</div>
+            <div class="ebook-panel-rating-price">
+                <div class="ebook-rating"></div>
+                <div class="ebook-price">{{mediaItem?.price}}</div>
+            </div>
+            <div class="ebook-description">
+            {{mediaItem?.description}}    
+            </div>
+            <div class="ebook-author">Author: Mrs. Rosie</div>
+            <div class="ebook-btn-buy">
+                <button *ngIf="mediaType !== 4" class="btn-buy-ebook" (click)="onConfirmBuy()">Buy</button>
+                <button *ngIf="mediaType === 4" class="btn-buy-ebook" (click)="onReadEbook()">Read</button>
+                <!-- <button class="btn-buy-ebook" style="margin-top: 15px" (click)="onPlay()">Play</button> -->
+            </div>
+        </div>
+    </div>
+</div>

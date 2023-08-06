@@ -1,0 +1,62 @@
+<div class="full-width-height">
+    <div class="splash-content">
+        <div class="logo">
+            <img src="./assets/splash-logo.svg"alt="">
+        </div>
+        <div class="div-slogan">
+            <p class="slogan">Explore the first decentralized metaverse that is built and owned by its users</p>
+        </div>
+        <div class="choose-option">
+            <div class="create-or-signin bg-choose-option">
+                <div class="splash-title-option">
+                    <p>Create an account or sign in</p>
+                </div>
+                <div class="splash-list-option">
+                    <div class="splash-line-checklist">
+                        <img src="./assets/ticked.png" alt="">
+                        <p>Free to play</p>
+                    </div>
+                    <div class="splash-line-checklist">
+                        <img src="./assets/ticked.png" alt="">
+                        <p>Play on multiple devices</p>
+                    </div>
+                    <div class="splash-line-checklist">
+                        <img src="./assets/ticked.png" alt="">
+                        <p>Friends and private chat</p>
+                    </div>
+                    <div class="splash-line-checklist">
+                        <img src="./assets/ticked.png" alt="">
+                        <p>Buy, trade and earn NFTs</p>
+                    </div>
+                </div>
+                <div class="splash-list-btns">
+                    <button mat-button class="btn-signin" (click)="goSigninPage()">SIGN IN</button>
+                    <button mat-stroked-button class="btn-connent-wallet" style="margin-top: 15px !important;" (click)="connectWallet()">Connect with wallet</button>
+                </div>
+            </div>
+            <div class="create-or-signin bg-choose-option">
+                <div class="splash-title-option">
+                    <p>Play as guest</p>
+                </div>
+                <div class="splash-list-option" style="margin-top: 43px">
+                    <div class="splash-line-checklist">
+                        <img src="./assets/ticked.png" alt="">
+                        <p>Free to play</p>
+                    </div>
+                    <div class="splash-line-checklist">
+                        <p class="p-text-uncheck">Play on multiple devices</p>
+                    </div>
+                    <div class="splash-line-checklist">
+                        <p class="p-text-uncheck">Friends and private chat</p>
+                    </div>
+                    <div class="splash-line-checklist">
+                        <p class="p-text-uncheck">Buy, trade and earn NFTs</p>
+                    </div>
+                </div>
+                <div class="splash-list-btns" style="margin-top: 8vh">
+                    <button mat-stroked-button class="btn-connent-wallet" (click)="playAsGuest()">Play as guest</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

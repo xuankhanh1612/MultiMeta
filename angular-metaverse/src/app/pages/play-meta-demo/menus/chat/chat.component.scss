@@ -1,0 +1,15 @@
+.chat-panel {
+  height: 100%;
+}
+
+.input-send-message {
+
+}
+
+.box-chat {
+  height: calc(100% - 100px);
+  background: white;
+  overflow: hidden scroll;
+  word-break: break-all;
+  font-size: x-small;
+}

@@ -1,0 +1,67 @@
+<div class="profile-container">
+    <div class="home-profile d-flex flex-column align-items-center">
+        <div class="group-avatar">
+            <img class="img-avatar" [src]="avatar ? avatar : './assets/avatar-default.png'" alt="">
+            <div class="image-upload">
+                <label for="file-input">
+                    <img class="btn-edit-avatar" src="./assets/edit.png" alt="">
+                </label>
+                <input id="file-input" type="file" (change)="onChangeFile($event)">
+            </div>
+        </div>
+        <div class="group-user-name d-flex">
+            <input class="label-username" type="text" placeholder="Username" disabled [(ngModel)]="username">
+            <div class="btn-edit-username" (click)="isDisableEditName = !isDisableEditName">
+                <img src="./assets/icons/ic-edit.svg" alt="">
+            </div>
+        </div>
+        <div class="group-input-field d-flex">
+            <div class="title-field d-flex flex-column justify-content-center align-items-start">First name</div>
+            <div class="div-input">
+                <input class="" type="text" placeholder="First name" [disabled]="isDisableEditName" [(ngModel)]="firstName">
+            </div>
+        </div>
+        <div class="group-input-field d-flex">
+            <div class="title-field d-flex flex-column justify-content-center align-items-start">Last name</div>
+            <div class="div-input">
+                <input class="" type="text" placeholder="Last name" [disabled]="isDisableEditName" [(ngModel)]="lastName">
+            </div>
+        </div>
+        <div class="group-input-field d-flex">
+            <div class="title-field d-flex flex-column justify-content-center align-items-start">Phone</div>
+            <div class="div-input">
+                <input class="" type="number" placeholder="Phone number" [(ngModel)]="phone">
+            </div>
+            <div class="ic-verify d-flex flex-column justify-content-center align-items-center">
+                <img [src]="isVerifyPhone ? './assets/verify.png' : './assets/no-verify.png'" alt="">
+            </div>
+        </div>
+        <div class="group-input-field d-flex">
+            <div class="title-field d-flex flex-column justify-content-center align-items-start">Email</div>
+            <div class="div-input">
+                <input class="" type="email" placeholder="Email" [(ngModel)]="email">
+            </div>
+            <div class="ic-verify d-flex flex-column justify-content-center align-items-center">
+                <img [src]="isVerifyEmail ? './assets/verify.png' : './assets/no-verify.png'" alt="">
+            </div>
+        </div>
+        <div class="group-input-field d-flex">
+            <div class="title-field d-flex flex-column justify-content-center align-items-start">Contry</div>
+            <div class="dropdown-contry">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle d-flex justify-content-between align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Viet Nam
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item">Viet Nam</a></li>
+                        <li><a class="dropdown-item">US</a></li>
+                        <li><a class="dropdown-item">UK</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <button class="btn-verify" style="margin-top: 2vh;" (click)="onChangeCharacter()">CHANGE CHARACTER</button>
+        <button class="btn-verify" (click)="onVerify()">VERIFIED</button>
+        <button class="btn-save-change" (click)="onSave()">SAVE CHANGE</button>
+    </div>
+</div>

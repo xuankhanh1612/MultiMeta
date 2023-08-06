@@ -1,0 +1,41 @@
+<div class="media-items-container">
+    <div class="media-items-header">
+        <div class="media-items-category">{{title}}</div>
+        <div class="media-items-btn-more">More</div>
+        <!-- <ng-container *ngFor="let item of audios">
+            <h1>{{item.name}}</h1>>
+        </ng-container> -->
+    </div>
+    <div class="media-items-body">
+        <div [id]="'carousel' + title" class="carousel slide" data-interval="false" wrap="true" touch="true" data-bs-ride="true">
+<!--            <div class="carousel-indicators">-->
+<!--                <ng-container *ngFor="let idx of arrayNumerBtn">-->
+<!--                    <button type="button" [attr.data-bs-target]="carouselId" [attr.data-bs-slide-to]="idx" [ngClass]="idx === 0 ? 'active' : ''" aria-current="true"></button>-->
+<!--                </ng-container>-->
+<!--            </div>-->
+            <div class="carousel-inner" style="height: 100%">
+                <div style="width: 100%; display:flex">
+                    <ng-container *ngFor="let item of audios" >
+                        <div class="group-items group-item-audio" (click)="onSelectAudio(item)">
+                            <div class="item-audio-content">
+                                <div class="item-audio-img-audio">
+                                    <img [src]="item.cover_link" class="d-block" alt="">
+                                </div>
+                                <div class="item-audio-price">{{item.currency}}{{item.price}}</div>
+                            </div>
+                            <div class="item-audio-name">{{item.name}}</div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" [attr.data-bs-target]="carouselId" data-bs-slide="prev" style="margin-bottom: 30px;" (click)="onPrev()">
+                <span class="carousel-control-prev-icon" aria-hidden="true" style="width: 20px;"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" [attr.data-bs-target]="carouselId" data-bs-slide="next" style="margin-bottom: 30px;" (click)="onNext()">
+                <span class="carousel-control-next-icon" aria-hidden="true" style="width: 20px;"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</div>

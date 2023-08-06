@@ -1,0 +1,31 @@
+<div class="background-confirm">
+    <div class="confirm-container">
+        <ng-container *ngIf="isEnterEmail">
+            <div class="confirm-title">{{title1}}</div>
+            <input class="verify-field" [(ngModel)]="emailConfirm" type="email">
+            <button class="verify-btn verify-btn-1" (click)="onNext()">Next step</button>
+            <button class="verify-btn verify-btn-2" (click)="onSelectByPhone()">By phone number</button>
+        </ng-container>
+        <ng-container *ngIf="!isEnterEmail">
+            <div class="confirm-title">{{title2}}</div>
+
+            <div class="confirm-fields">
+                <form class="content-area">
+                    <fieldset>
+                        <div class='number-code'>
+                            <input name='code' class='code-input' type="text" [(ngModel)]="code1" required/>
+                            <input name='code' class='code-input' type="text" [(ngModel)]="code2" required/>
+                            <input name='code' class='code-input' type="text" [(ngModel)]="code3" required/>
+                            <input name='code' class='code-input' type="text" [(ngModel)]="code4" required/>
+                            <input name='code' class='code-input' type="text" [(ngModel)]="code5" required/>
+                            <input name='code' class='code-input' type="text" [(ngModel)]="code6" required/>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+
+            <button class="verify-btn verify-btn-1" (click)="onConfirm()">Confirm</button>
+            <button class="verify-btn verify-btn-2" (click)="onResendCode()">resend code</button>
+        </ng-container>
+    </div>
+</div>

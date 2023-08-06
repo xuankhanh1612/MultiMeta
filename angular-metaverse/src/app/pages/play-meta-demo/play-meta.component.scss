@@ -1,0 +1,76 @@
+.example-container {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: transparent;
+}
+
+.id-view-3d {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-sidenav {
+  padding: 20px;
+  min-width: 426px;
+}
+
+.btn-menus {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  z-index: 15;
+}
+
+.item-menu {
+  cursor: pointer;
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;
+  transition: all 0.5s ease 0s;
+  background: rgb(200, 200, 200);
+  color: rgb(58, 58, 58);
+  font-family: 'Bruno Ace';
+}
+
+.item-menu:hover {
+  background: rgb(180, 180, 180);
+}
+
+.item-menu-active {
+  cursor: pointer;
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;
+  transition: all 0.5s ease 0s;
+  background: gray;
+  color: rgb(58, 58, 58);
+  font-family: 'Bruno Ace';
+}
+
+.mat-expansion-panel {
+  position: fixed;
+  width: 386px;
+  z-index: 3;
+}
+
+.menu-content {
+  margin-top: 50px;
+  height: calc(100% - 70px);
+}
+
+.menu-footer {
+  background: rgb(56, 56, 56);
+  text-align: center;
+  height: 70px;
+  transition: all 0.5s ease 0s;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  margin-left: -20px;
+}

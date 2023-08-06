@@ -1,0 +1,34 @@
+<div class="multiplayer-container">
+    <div class="form-go-line" *ngIf="!hasConnection">
+        <div class="go-line-title">enter a peer
+            id
+        </div>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="enter id" aria-label="enter id"
+                   aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" type="button" id="go-connect" (click)="goConnectionList()">Go
+                live
+            </button>
+        </div>
+        <div class="prefer-discord">This feature is still
+            experimental. Please join our <a href="https://discord.gg/w6CzHy35E2">Discord</a> if you have any difficulty
+            or
+            want to suggest an improvement.
+        </div>
+    </div>
+
+    <div *ngIf="hasConnection">
+        <div class="create-connection">
+            <div class="card-connection">Connect to peers</div>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="enter id" aria-label="enter id"
+                       aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary" type="button" id="create-connection" (click)="goConnectionList()">Connect</button>
+            </div>
+            <div>Enter a peerId to attempt connection.</div>
+        </div>
+
+        <div style="width: 100%; font-weight: bold; font-size: 25px; text-align: center; margin-top: 50px;">Connection List</div>
+        <div style="font-size: xx-small; width: 100%; text-align: center;">Activate the ★ icon to save a connection.</div>
+    </div>
+</div>

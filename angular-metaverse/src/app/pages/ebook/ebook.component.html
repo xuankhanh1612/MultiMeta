@@ -1,0 +1,87 @@
+<div class="ebook-container">
+    <div class="ebook-content flex-column">
+        <div class="ebook-header">
+            <div class="ebook-title">Ebook</div>
+            <div class="ebook-search">
+                <div class="ebook-search-input">
+                    <input type="text" class="form-control" placeholder="Enter name ebook">
+                    <img src="./assets/icons/ic-search.svg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="ebook-body">
+            <div class="ebook-nav">
+                <nav>
+                    <div class="nav nav-tabs flex-column" id="nav-tab" role="tablist">
+                        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Ebooks</button>
+<!--                        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Category 1</button>-->
+<!--                        <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Category 2</button>-->
+                    </div>
+                </nav>
+            </div>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+                    <div [id]="'carousel' + title" class="carousel slide" data-interval="false" wrap="true" touch="true" data-bs-ride="true">
+                        <div class="carousel-indicators">
+                            <ng-container *ngFor="let idx of arrayNumerBtn">
+                                <button type="button" [attr.data-bs-target]="carouselId" [attr.data-bs-slide-to]="idx" [ngClass]="idx === 0 ? 'active' : ''" aria-current="true"></button>
+                            </ng-container>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item-body">
+                                <ng-container *ngFor="let item of ebooks">
+                                    <div class="group-items-ebook">
+                                        <div class="item-ebook-img">
+                                            <img [src]="item.cover_link" class="d-block" alt="">
+                                        </div>
+                                        <div class="item-ebook-detail">
+                                            <div class="item-ebook-name">{{item.name}}</div>
+                                            <div class="item-ebook-price">{{item.price}}</div>
+                                        </div>
+                                        <button class="btn-buy-ebook" (click)="onSelectEbook(item)">Read</button>
+                                    </div>
+                                </ng-container>
+                            </div>
+                            <!-- <ng-container *ngFor="let idx of arrayNumerBtn">
+                                <div class="carousel-item" [ngClass]="idx === 0 ? 'active' : ''">
+                                    
+                                </div>
+                            </ng-container> -->
+                        </div>
+<!--                        <button class="carousel-control-prev" type="button" [attr.data-bs-target]="carouselId" data-bs-slide="prev">-->
+<!--                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+<!--                            <span class="visually-hidden">Previous</span>-->
+<!--                        </button>-->
+<!--                        <button class="carousel-control-next" type="button" [attr.data-bs-target]="carouselId" data-bs-slide="next">-->
+<!--                            <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+<!--                            <span class="visually-hidden">Next</span>-->
+<!--                        </button>-->
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+                    <div class="ebook-panel-detail">
+                        <div class="ebook-panel-img">
+                            <img src="https://picsum.photos/265/342" class="d-block" alt="">
+                        </div>
+                        <div class="ebook-panel-content">
+                            <div class="ebook-panel-name">
+                                How much is youth worth?</div>
+                            <div class="ebook-panel-rating-price">
+                                <div class="ebook-rating"></div>
+                                <div class="ebook-price">$100</div>
+                            </div>
+                            <div class="ebook-description">
+                                IF ONE DAY YOU FIND ME CRAZY, YOU'RE REALLY CRAZY!
+                                O people who are buckling in life, what do you know about your world? Is it countless theories tested by great men, is it the law, is it a thousand truths disguised as obvious, or is it the rigid philosophies of life?</div>
+                            <div class="ebook-author">Author: Mrs. Rosie</div>
+                            <div class="ebook-btn-buy">
+                                <button class="btn-buy-ebook">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">Category 2 content</div>
+            </div>
+        </div>
+    </div>
+</div>

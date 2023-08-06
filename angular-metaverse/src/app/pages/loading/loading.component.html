@@ -1,0 +1,10 @@
+<div class="w-100 h-100 loading-container position-fixed top-0">
+    <div class="d-flex flex-column flex-nowrap justify-content-center align-items-center align-content-sm-center">
+        <div class="loading-title">Loading</div>
+        <div class="loading-body">
+            <ng-container *ngFor="let idx of dots">
+                <img [ngClass]="idx === 0 ? 'first-dot' : 'middle-dot'" [src]="idx < sessionService.progressLoaded ? './assets/dot-loaded.png' : './assets/dot-load.png'" alt="">
+            </ng-container>
+        </div>
+    </div>
+</div>
